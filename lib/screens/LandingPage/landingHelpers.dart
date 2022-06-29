@@ -19,7 +19,8 @@ class landingHelpers with ChangeNotifier {
                 style: TextStyle(
                     color: constantColors.primaryColor,
                     fontWeight: FontWeight.bold,
-                    fontSize: 40.0),
+                    fontSize: 40.0,
+                    letterSpacing: 2.0),
               )
             ],
           ),

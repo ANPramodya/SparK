@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:spark/constants/ConstantColors.dart';
 import 'package:spark/screens/LandingPage/landingPage.dart';
+import 'package:spark/screens/login/loginPage.dart';
 
 class SplashScreen extends StatefulWidget {
   SplashScreen({Key? key}) : super(key: key);
@@ -22,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
         () => Navigator.pushReplacement(
             context,
             PageTransition(
-                child: landingPage(), type: PageTransitionType.leftToRight)));
+                child: loginPage(), type: PageTransitionType.leftToRight)));
     super.initState();
   }
 

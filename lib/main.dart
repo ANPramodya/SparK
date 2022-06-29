@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:spark/constants/ConstantColors.dart';
 import 'package:spark/screens/LandingPage/landingHelpers.dart';
 import 'package:spark/screens/SplashScreen/SplashScreen.dart';
+import 'package:spark/screens/login/loginHelpers.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +22,10 @@ class MyApp extends StatelessWidget {
             fontFamily: 'Poppins',
             canvasColor: constantcolors.transparent),
       ),
-      providers: [ChangeNotifierProvider(create: (_) => landingHelpers())],
+      providers: [
+        ChangeNotifierProvider(create: (_) => landingHelpers()),
+        ChangeNotifierProvider(create: (_) => loginHelpers())
+      ],
     );
   }
 }
