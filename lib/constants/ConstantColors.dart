@@ -7,6 +7,8 @@ class ConstantColors {
   final Color darkBlueColor = Color(0xFF1A1C25);
   final Color whiteColor = Colors.white;
   final Color lightDarkColor = Color(0xff363636);
+  final Color redColor = Colors.red;
+  final Color yellowColor = Colors.amber;
   final Color transparent = Colors.transparent;
   final Color blueColor = Colors.lightBlueAccent.shade400;
 }
