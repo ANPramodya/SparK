@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       ),
       providers: [
         ChangeNotifierProvider(create: (_) => landingHelpers()),
-        ChangeNotifierProvider(create: (_) => loginHelpers())
+        ChangeNotifierProvider(create: (_) => loginHelpers()),
       ],
     );
   }

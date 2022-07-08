@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:spark/constants/Constantcolors.dart';
+import 'package:spark/screens/RegisterPage/RegisterPage1.dart';
 import 'package:spark/screens/login/loginPage.dart';
 
 class landingHelpers with ChangeNotifier {
@@ -58,7 +59,13 @@ class landingHelpers with ChangeNotifier {
                       height: 40.0,
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                            context,
+                            PageTransition(
+                                child: RegisterPage1(),
+                                type: PageTransitionType.rightToLeft));
+                      },
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(
                             constantColors.primaryColor),
