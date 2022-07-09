@@ -23,7 +23,7 @@ class landingHelpers with ChangeNotifier {
                     color: constantColors.primaryColor,
                     fontWeight: FontWeight.bold,
                     fontSize: 40.0,
-                    letterSpacing: 2.0),
+                    letterSpacing: 3.0),
               )
             ],
           ),

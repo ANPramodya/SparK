@@ -6,6 +6,7 @@ import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:spark/constants/ConstantColors.dart';
 import 'package:spark/screens/LandingPage/landingHelpers.dart';
+import 'package:spark/screens/LandingPage/landingPage.dart';
 import 'package:spark/screens/RegisterPage/RegisterPage2.dart';
 
 class RegisterPage1 extends StatefulWidget {
@@ -56,21 +57,31 @@ class _RegisterPage1State extends State<RegisterPage1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: constantColors.darkColor,
+        elevation: 0.0,
+        centerTitle: true,
+        title: Text(
+          'SparK',
+          style: TextStyle(
+              color: constantColors.primaryColor,
+              fontSize: 40.0,
+              fontWeight: FontWeight.bold,
+              letterSpacing: 3.0),
+        ),
+        leading: IconButton(
+            onPressed: () {},
+            icon: Icon(
+              FontAwesomeIcons.arrowLeft,
+              color: constantColors.primaryColor,
+            )),
+      ),
       resizeToAvoidBottomInset: false,
       backgroundColor: constantColors.darkColor,
       body: Center(
         child: Container(
-          padding: EdgeInsets.only(top: 50.0),
           child: Column(
             children: [
-              Text(
-                'SparK',
-                style: TextStyle(
-                    color: constantColors.primaryColor,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 40.0,
-                    letterSpacing: 2.0),
-              ),
               SizedBox(
                 height: 50.0,
               ),
@@ -99,29 +110,31 @@ class _RegisterPage1State extends State<RegisterPage1> {
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                      child: TextField(
-                        style: TextStyle(
-                            color: constantColors.primaryColor,
-                            fontSize: 18.0,
-                            letterSpacing: 1.5),
-                        textAlign: TextAlign.center,
-                        decoration: InputDecoration(
-                            focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(50.0),
-                                borderSide: BorderSide(
-                                    color: constantColors.primaryColor)),
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(50.0),
-                                borderSide: BorderSide(
-                                    width: 1,
-                                    color: constantColors.primaryColor)),
-                            filled: true,
-                            fillColor: constantColors.darkColor,
-                            hintText: 'Full Name',
-                            hintStyle: TextStyle(
-                                color: constantColors.lightDarkColor,
-                                fontSize: 16.0,
-                                letterSpacing: 1.0)),
+                      child: Form(
+                        child: TextFormField(
+                          style: TextStyle(
+                              color: constantColors.primaryColor,
+                              fontSize: 18.0,
+                              letterSpacing: 1.5),
+                          textAlign: TextAlign.center,
+                          decoration: InputDecoration(
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(50.0),
+                                  borderSide: BorderSide(
+                                      color: constantColors.primaryColor)),
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(50.0),
+                                  borderSide: BorderSide(
+                                      width: 1,
+                                      color: constantColors.primaryColor)),
+                              filled: true,
+                              fillColor: constantColors.darkColor,
+                              hintText: 'Full Name',
+                              hintStyle: TextStyle(
+                                  color: constantColors.lightDarkColor,
+                                  fontSize: 16.0,
+                                  letterSpacing: 1.0)),
+                        ),
                       ),
                     ),
                     SizedBox(

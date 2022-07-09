@@ -87,7 +87,7 @@ class loginHelpers with ChangeNotifier {
                   Padding(
                     ////////////////////////////////////////////////////Password TextField
                     padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                    child: TextField(
+                    child: TextFormField(
                       obscureText: _isObsecure,
                       enableSuggestions: false,
                       autocorrect: false,
