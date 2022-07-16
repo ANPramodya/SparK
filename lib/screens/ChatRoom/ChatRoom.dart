@@ -9,7 +9,7 @@ class ChatRoom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: constantColors.yellowColor,
+      backgroundColor: constantColors.darkColor,
       body: Center(
         child: Text(
           'Chat Room',

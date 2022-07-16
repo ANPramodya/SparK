@@ -27,6 +27,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       backgroundColor: constantColors.darkColor,
       body: PageView(
         controller: homePageController,
@@ -38,8 +39,10 @@ class _HomePageState extends State<HomePage> {
           });
         },
       ),
+      // bottomNavigationBar: Provider.of<HomePageHelpers>(context, listen: false)
+      //   .bottomNavBar(context, pageIndex, homePageController),
       bottomNavigationBar: Provider.of<HomePageHelpers>(context, listen: false)
-          .bottomNavBar(context, pageIndex, homePageController),
+          .animatedBottomNavBar(context, pageIndex, homePageController),
     );
   }
 }

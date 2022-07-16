@@ -29,6 +29,7 @@ environment:
 dependencies:
   avatar_glow: ^2.0.2
   cupertino_icons: ^1.0.2
+  curved_navigation_bar: ^1.0.3
   custom_navigation_bar: ^0.8.2
   dropdown_button2: ^1.6.3
   eva_icons_flutter: ^3.1.0
