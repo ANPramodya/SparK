@@ -6,6 +6,7 @@ import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:spark/constants/ConstantColors.dart';
 import 'package:spark/screens/HomePage/HomePage.dart';
+import 'package:spark/screens/HomePage/HomePagePrev.dart';
 
 class loginHelpers with ChangeNotifier {
   ConstantColors constantColors = ConstantColors();
@@ -156,7 +157,7 @@ class loginHelpers with ChangeNotifier {
                         Navigator.pushReplacement(
                             context,
                             PageTransition(
-                                child: HomePage(),
+                                child: HomePagePrev(),
                                 type: PageTransitionType.bottomToTop));
                       },
                       backgroundColor: constantColors.primaryColor,

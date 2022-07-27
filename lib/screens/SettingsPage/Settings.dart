@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:spark/constants/ConstantColors.dart';
 import 'package:spark/widgets/MenuWidget.dart';
-import 'package:spark/widgets/RegisterTextField.dart';
 
-class ChatRoom extends StatelessWidget {
+import '../../constants/ConstantColors.dart';
+
+class Settings extends StatefulWidget {
+  Settings({Key? key}) : super(key: key);
+
+  @override
+  State<Settings> createState() => _SettingsState();
+}
+
+class _SettingsState extends State<Settings> {
   ConstantColors constantColors = ConstantColors();
-  //const ChatRoom({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,14 +21,14 @@ class ChatRoom extends StatelessWidget {
         iconTheme: IconThemeData(color: constantColors.primaryColor),
         backgroundColor: constantColors.darkColor,
         title: Text(
-          'Chats',
+          'Settings',
           style: TextStyle(color: constantColors.primaryColor, fontSize: 20.0),
         ),
         centerTitle: true,
       ),
       body: Center(
         child: Text(
-          'Chat Room',
+          'Settings',
           style: TextStyle(color: constantColors.whiteColor, fontSize: 25.0),
         ),
       ),
