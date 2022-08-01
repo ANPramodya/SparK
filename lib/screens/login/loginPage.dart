@@ -4,7 +4,12 @@ import 'package:spark/constants/ConstantColors.dart';
 import 'package:spark/screens/LandingPage/landingHelpers.dart';
 import 'package:spark/screens/login/loginHelpers.dart';
 
-class loginPage extends StatelessWidget {
+class loginPage extends StatefulWidget {
+  @override
+  State<loginPage> createState() => _loginPageState();
+}
+
+class _loginPageState extends State<loginPage> {
   ConstantColors constantColors = ConstantColors();
 
   @override

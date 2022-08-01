@@ -77,7 +77,7 @@ class landingHelpers with ChangeNotifier {
                                     borderRadius: BorderRadius.circular(50.0))),
                       ),
                       child: Container(
-                        height: 30.0,
+                        height: 25.0,
                         width: 80.0,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(50.0)),
@@ -85,7 +85,7 @@ class landingHelpers with ChangeNotifier {
                           child: Text(
                             'Register',
                             style: TextStyle(
-                                color: constantColors.lightDarkColor,
+                                color: constantColors.darkColor,
                                 fontSize: 16.0,
                                 fontWeight: FontWeight.bold,
                                 letterSpacing: 1.5),
@@ -125,7 +125,7 @@ class landingHelpers with ChangeNotifier {
                                     borderRadius: BorderRadius.circular(50.0))),
                       ),
                       child: Container(
-                        height: 30.0,
+                        height: 25.0,
                         width: 80.0,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(50.0)),
@@ -133,7 +133,7 @@ class landingHelpers with ChangeNotifier {
                           child: Text(
                             'Login',
                             style: TextStyle(
-                                color: constantColors.lightDarkColor,
+                                color: constantColors.darkColor,
                                 fontSize: 16.0,
                                 fontWeight: FontWeight.bold,
                                 letterSpacing: 1.5),

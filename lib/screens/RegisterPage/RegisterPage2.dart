@@ -77,6 +77,7 @@ class _RegisterPage2State extends State<RegisterPage2> {
                               fontSize: 18.0,
                               letterSpacing: 1.5),
                           textAlign: TextAlign.center,
+                          cursorColor: constantColors.primaryColor,
                           decoration: InputDecoration(
                               focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(50.0),

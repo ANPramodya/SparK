@@ -63,6 +63,7 @@ class loginHelpers with ChangeNotifier {
                           fontSize: 18.0,
                           letterSpacing: 1.5),
                       textAlign: TextAlign.center,
+                      cursorColor: constantColors.primaryColor,
                       decoration: InputDecoration(
                           focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(50.0),
@@ -92,6 +93,7 @@ class loginHelpers with ChangeNotifier {
                       obscureText: _isObsecure,
                       enableSuggestions: false,
                       autocorrect: false,
+                      cursorColor: constantColors.primaryColor,
                       style: TextStyle(
                           color: constantColors.primaryColor,
                           fontSize: 18.0,

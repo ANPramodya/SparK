@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:spark/constants/ConstantColors.dart';
+import 'package:spark/screens/Feed/FeedHelpers.dart';
 import 'package:spark/screens/HomePage/HomePageHelpers.dart';
 import 'package:spark/screens/LandingPage/landingHelpers.dart';
 import 'package:spark/screens/SplashScreen/SplashScreen.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
             canvasColor: constantcolors.transparent),
       ),
       providers: [
+        ChangeNotifierProvider(create: (_) => FeedHelpers()),
         ChangeNotifierProvider(create: (_) => HomePageHelpers()),
         ChangeNotifierProvider(create: (_) => landingHelpers()),
         ChangeNotifierProvider(create: (_) => loginHelpers()),

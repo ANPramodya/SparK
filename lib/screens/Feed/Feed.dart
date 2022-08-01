@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:spark/constants/ConstantColors.dart';
+import 'package:spark/screens/Feed/FeedHelpers.dart';
 import 'package:spark/widgets/MenuWidget.dart';
 
 class Feed extends StatelessWidget {
@@ -20,12 +22,7 @@ class Feed extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: Center(
-        child: Text(
-          'Feed',
-          style: TextStyle(color: constantColors.whiteColor, fontSize: 25.0),
-        ),
-      ),
+      body: Provider.of<FeedHelpers>(context, listen: false).feedBody(context),
     );
   }
 }

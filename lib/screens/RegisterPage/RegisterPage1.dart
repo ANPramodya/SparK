@@ -117,6 +117,7 @@ class _RegisterPage1State extends State<RegisterPage1> {
                               fontSize: 18.0,
                               letterSpacing: 1.5),
                           textAlign: TextAlign.center,
+                          cursorColor: constantColors.primaryColor,
                           decoration: InputDecoration(
                               focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(50.0),
@@ -267,11 +268,13 @@ class _RegisterPage1State extends State<RegisterPage1> {
                       ),
                       items: Faculties.map((item) => DropdownMenuItem<String>(
                             value: item,
-                            child: Text(
-                              item,
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  color: constantColors.lightDarkColor),
+                            child: Center(
+                              child: Text(
+                                item,
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    color: constantColors.lightDarkColor),
+                              ),
                             ),
                           )).toList(),
                       value: selectedValueFac,

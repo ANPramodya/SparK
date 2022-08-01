@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:spark/constants/ConstantColors.dart';
+import 'package:spark/screens/login/loginPage.dart';
 
 import 'RegisterPage2.dart';
 
@@ -17,6 +18,7 @@ class RegisterPage3 extends StatefulWidget {
 class _RegisterPage3State extends State<RegisterPage3> {
   ConstantColors constantColors = ConstantColors();
   bool _isObsecure = true;
+  bool _isObsecureConfirm = true;
   bool value = true;
 
   @override
@@ -82,6 +84,7 @@ class _RegisterPage3State extends State<RegisterPage3> {
                               fontSize: 18.0,
                               letterSpacing: 1.5),
                           textAlign: TextAlign.center,
+                          cursorColor: constantColors.primaryColor,
                           decoration: InputDecoration(
                               focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(50.0),
@@ -117,9 +120,9 @@ class _RegisterPage3State extends State<RegisterPage3> {
                       padding: const EdgeInsets.symmetric(horizontal: 10.0),
                       child: Form(
                         child: TextFormField(
-                          obscureText: _isObsecure,
                           enableSuggestions: false,
                           autocorrect: false,
+                          cursorColor: constantColors.primaryColor,
                           style: TextStyle(
                               color: constantColors.primaryColor,
                               fontSize: 18.0,
@@ -155,6 +158,7 @@ class _RegisterPage3State extends State<RegisterPage3> {
                         obscureText: _isObsecure,
                         enableSuggestions: false,
                         autocorrect: false,
+                        cursorColor: constantColors.primaryColor,
                         style: TextStyle(
                             color: constantColors.primaryColor,
                             fontSize: 18.0,
@@ -198,9 +202,10 @@ class _RegisterPage3State extends State<RegisterPage3> {
                       ////////////////////////////////////////////////////Password TextField
                       padding: const EdgeInsets.symmetric(horizontal: 10.0),
                       child: TextFormField(
-                        obscureText: _isObsecure,
+                        obscureText: _isObsecureConfirm,
                         enableSuggestions: false,
                         autocorrect: false,
+                        cursorColor: constantColors.primaryColor,
                         style: TextStyle(
                             color: constantColors.primaryColor,
                             fontSize: 18.0,
@@ -210,11 +215,11 @@ class _RegisterPage3State extends State<RegisterPage3> {
                             suffixIcon: IconButton(
                                 onPressed: () {
                                   setState(() {
-                                    _isObsecure = !_isObsecure;
+                                    _isObsecureConfirm = !_isObsecureConfirm;
                                   });
                                 },
                                 icon: Icon(
-                                  _isObsecure
+                                  _isObsecureConfirm
                                       ? Icons.visibility
                                       : Icons.visibility_off,
                                   color: constantColors.lightDarkColor,
@@ -246,7 +251,7 @@ class _RegisterPage3State extends State<RegisterPage3> {
                           Navigator.pushReplacement(
                               context,
                               PageTransition(
-                                  child: RegisterPage2(),
+                                  child: loginPage(),
                                   type: PageTransitionType.bottomToTop));
                         },
                         backgroundColor: constantColors.primaryColor,
