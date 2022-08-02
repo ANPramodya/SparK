@@ -3,8 +3,11 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:provider/provider.dart';
 import 'package:spark/constants/ConstantColors.dart';
 import 'package:spark/screens/login/loginPage.dart';
+import 'package:spark/services/Authentication.dart';
+import 'package:spark/services/FirebaseOperations.dart';
 
 import 'RegisterPage2.dart';
 
@@ -17,6 +20,11 @@ class RegisterPage3 extends StatefulWidget {
 
 class _RegisterPage3State extends State<RegisterPage3> {
   ConstantColors constantColors = ConstantColors();
+  TextEditingController nameController = new TextEditingController();
+  TextEditingController usernameController = new TextEditingController();
+  TextEditingController passwordController = new TextEditingController();
+  TextEditingController confirmPasswordController = new TextEditingController();
+
   bool _isObsecure = true;
   bool _isObsecureConfirm = true;
   bool value = true;
@@ -79,6 +87,7 @@ class _RegisterPage3State extends State<RegisterPage3> {
                       padding: const EdgeInsets.symmetric(horizontal: 10.0),
                       child: Form(
                         child: TextFormField(
+                          controller: nameController,
                           style: TextStyle(
                               color: constantColors.primaryColor,
                               fontSize: 18.0,
@@ -120,6 +129,7 @@ class _RegisterPage3State extends State<RegisterPage3> {
                       padding: const EdgeInsets.symmetric(horizontal: 10.0),
                       child: Form(
                         child: TextFormField(
+                          controller: usernameController,
                           enableSuggestions: false,
                           autocorrect: false,
                           cursorColor: constantColors.primaryColor,
@@ -155,6 +165,7 @@ class _RegisterPage3State extends State<RegisterPage3> {
                       ////////////////////////////////////////////////////Password TextField
                       padding: const EdgeInsets.symmetric(horizontal: 10.0),
                       child: TextFormField(
+                        controller: passwordController,
                         obscureText: _isObsecure,
                         enableSuggestions: false,
                         autocorrect: false,
@@ -202,6 +213,7 @@ class _RegisterPage3State extends State<RegisterPage3> {
                       ////////////////////////////////////////////////////Password TextField
                       padding: const EdgeInsets.symmetric(horizontal: 10.0),
                       child: TextFormField(
+                        controller: confirmPasswordController,
                         obscureText: _isObsecureConfirm,
                         enableSuggestions: false,
                         autocorrect: false,
@@ -248,11 +260,62 @@ class _RegisterPage3State extends State<RegisterPage3> {
                       showTwoGlows: true,
                       child: FloatingActionButton(
                         onPressed: () {
-                          Navigator.pushReplacement(
-                              context,
-                              PageTransition(
-                                  child: loginPage(),
-                                  type: PageTransitionType.bottomToTop));
+                          final String name = nameController.text.trim();
+                          final String username =
+                              usernameController.text.trim();
+                          final String password =
+                              passwordController.text.trim();
+                          final String confirmPassword =
+                              confirmPasswordController.text.trim();
+                          if (name.isEmpty) {
+                            print("Empty Name");
+                          } else {
+                            if (username.isEmpty) {
+                              print("Empty Username");
+                            } else {
+                              if (password.isEmpty) {
+                                print("Empty password");
+                              } else {
+                                if (confirmPassword.isEmpty) {
+                                  print("Empty Confirm Password");
+                                } else {
+                                  if (password != confirmPassword) {
+                                    print("Passwords do not Match");
+                                  } else {
+                                    Provider.of<Authentication>(context,
+                                            listen: false)
+                                        .createAccount(
+                                            getEmailController.text.trim(),
+                                            password,
+                                            username)
+                                        .whenComplete(() {
+                                      Provider.of<FirebaseOperations>(context,
+                                              listen: false)
+                                          .createUserCollection(context, {
+                                        'useruid': Provider.of<Authentication>(
+                                                context,
+                                                listen: false)
+                                            .getUserUid,
+                                        'useremail':
+                                            getEmailController.text.trim(),
+                                        'username': username,
+                                        'name': name,
+                                        'password': password
+                                      });
+                                      ;
+                                    }).whenComplete(() {
+                                      Navigator.pushReplacement(
+                                          context,
+                                          PageTransition(
+                                              child: loginPage(),
+                                              type: PageTransitionType
+                                                  .bottomToTop));
+                                    });
+                                  }
+                                }
+                              }
+                            }
+                          }
                         },
                         backgroundColor: constantColors.primaryColor,
                         child: Icon(

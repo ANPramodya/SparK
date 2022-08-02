@@ -1,4 +1,5 @@
 import 'package:avatar_glow/avatar_glow.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -7,9 +8,12 @@ import 'package:provider/provider.dart';
 import 'package:spark/constants/ConstantColors.dart';
 import 'package:spark/screens/HomePage/HomePage.dart';
 import 'package:spark/screens/HomePage/HomePagePrev.dart';
+import 'package:spark/services/Authentication.dart';
 
 class loginHelpers with ChangeNotifier {
   ConstantColors constantColors = ConstantColors();
+  TextEditingController loginUsernameController = new TextEditingController();
+  TextEditingController loginPasswordController = new TextEditingController();
   bool _isObsecure = true;
   bool value = true;
 
@@ -58,6 +62,7 @@ class loginHelpers with ChangeNotifier {
                     ////////////////////////////////////////////////////////Username textField
                     padding: const EdgeInsets.symmetric(horizontal: 10.0),
                     child: TextField(
+                      controller: loginUsernameController,
                       style: TextStyle(
                           color: constantColors.primaryColor,
                           fontSize: 18.0,
@@ -90,6 +95,7 @@ class loginHelpers with ChangeNotifier {
                     ////////////////////////////////////////////////////Password TextField
                     padding: const EdgeInsets.symmetric(horizontal: 10.0),
                     child: TextFormField(
+                      controller: loginPasswordController,
                       obscureText: _isObsecure,
                       enableSuggestions: false,
                       autocorrect: false,
@@ -155,12 +161,32 @@ class loginHelpers with ChangeNotifier {
                     glowColor: constantColors.primaryColor,
                     showTwoGlows: true,
                     child: FloatingActionButton(
-                      onPressed: () {
-                        Navigator.pushReplacement(
-                            context,
-                            PageTransition(
-                                child: HomePagePrev(),
-                                type: PageTransitionType.bottomToTop));
+                      onPressed: () async {
+                        if (loginUsernameController.text.isEmpty) {
+                          print("username empty");
+                        } else {
+                          if (loginPasswordController.text.isEmpty) {
+                            print("password empty");
+                          } else {
+                            QuerySnapshot snapshot = await FirebaseFirestore
+                                .instance
+                                .collection('users')
+                                .where("username",
+                                    isEqualTo:
+                                        loginUsernameController.text.trim())
+                                .get();
+                            Provider.of<Authentication>(context, listen: false)
+                                .logIntoAccount(snapshot.docs[0]['useremail'],
+                                    loginPasswordController.text.trim())
+                                .whenComplete(() {
+                              Navigator.pushReplacement(
+                                  context,
+                                  PageTransition(
+                                      child: HomePagePrev(),
+                                      type: PageTransitionType.bottomToTop));
+                            });
+                          }
+                        }
                       },
                       backgroundColor: constantColors.primaryColor,
                       child: Icon(

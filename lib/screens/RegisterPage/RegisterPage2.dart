@@ -12,8 +12,12 @@ class RegisterPage2 extends StatefulWidget {
   State<RegisterPage2> createState() => _RegisterPage2State();
 }
 
+TextEditingController emailController = new TextEditingController();
+TextEditingController get getEmailController => emailController;
+
 class _RegisterPage2State extends State<RegisterPage2> {
   ConstantColors constantColors = ConstantColors();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,6 +76,7 @@ class _RegisterPage2State extends State<RegisterPage2> {
                       padding: const EdgeInsets.symmetric(horizontal: 10.0),
                       child: Form(
                         child: TextFormField(
+                          controller: emailController,
                           style: TextStyle(
                               color: constantColors.primaryColor,
                               fontSize: 18.0,
@@ -198,11 +203,20 @@ class _RegisterPage2State extends State<RegisterPage2> {
                             showTwoGlows: true,
                             child: FloatingActionButton(
                               onPressed: () {
-                                Navigator.pushReplacement(
-                                    context,
-                                    PageTransition(
-                                        child: RegisterPage3(),
-                                        type: PageTransitionType.bottomToTop));
+                                final String email =
+                                    emailController.text.trim();
+                                if (email.isEmpty) {
+                                  print(
+                                      'Email is empty'); //here comes a warning
+                                } else {
+                                  //additional check for verificationcode
+                                  Navigator.pushReplacement(
+                                      context,
+                                      PageTransition(
+                                          child: RegisterPage3(),
+                                          type:
+                                              PageTransitionType.bottomToTop));
+                                }
                               },
                               backgroundColor: constantColors.primaryColor,
                               child: Icon(

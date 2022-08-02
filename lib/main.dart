@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:spark/constants/ConstantColors.dart';
@@ -6,8 +7,12 @@ import 'package:spark/screens/HomePage/HomePageHelpers.dart';
 import 'package:spark/screens/LandingPage/landingHelpers.dart';
 import 'package:spark/screens/SplashScreen/SplashScreen.dart';
 import 'package:spark/screens/login/loginHelpers.dart';
+import 'package:spark/services/Authentication.dart';
+import 'package:spark/services/FirebaseOperations.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -25,6 +30,8 @@ class MyApp extends StatelessWidget {
             canvasColor: constantcolors.transparent),
       ),
       providers: [
+        ChangeNotifierProvider(create: (_) => FirebaseOperations()),
+        ChangeNotifierProvider(create: (_) => Authentication()),
         ChangeNotifierProvider(create: (_) => FeedHelpers()),
         ChangeNotifierProvider(create: (_) => HomePageHelpers()),
         ChangeNotifierProvider(create: (_) => landingHelpers()),
