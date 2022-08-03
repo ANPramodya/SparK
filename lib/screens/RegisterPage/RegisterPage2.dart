@@ -4,6 +4,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:spark/constants/ConstantColors.dart';
 import 'package:spark/screens/RegisterPage/RegisterPage3.dart';
+import 'package:spark/widgets/CustomDialogBox.dart';
+import 'package:spark/widgets/CustomWarning.dart';
 
 class RegisterPage2 extends StatefulWidget {
   RegisterPage2({Key? key}) : super(key: key);
@@ -107,7 +109,12 @@ class _RegisterPage2State extends State<RegisterPage2> {
                       height: 5.0,
                     ),
                     IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          showCustomDialogBox(context,
+                              title: "University Email Address",
+                              description:
+                                  "Type in the Email Address which university use to reach you");
+                        },
                         icon: Icon(
                           FontAwesomeIcons.circleInfo,
                           color: constantColors.primaryColor,
@@ -206,8 +213,10 @@ class _RegisterPage2State extends State<RegisterPage2> {
                                 final String email =
                                     emailController.text.trim();
                                 if (email.isEmpty) {
-                                  print(
-                                      'Email is empty'); //here comes a warning
+                                  showCustomWarningBox(context,
+                                      title: "Empty Field",
+                                      description:
+                                          "Please Enter University Email and get verified!"); //here comes a warning
                                 } else {
                                   //additional check for verificationcode
                                   Navigator.pushReplacement(

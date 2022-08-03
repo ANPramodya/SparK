@@ -39,7 +39,7 @@ class landingHelpers with ChangeNotifier {
             children: [
               Container(
                 decoration: BoxDecoration(
-                    color: constantColors.lightDarkColor,
+                    color: constantColors.lightDarkColor.withOpacity(0.5),
                     borderRadius: BorderRadius.circular(50.0),
                     border: Border.all(
                         color: constantColors.primaryColor, width: 1.0)),

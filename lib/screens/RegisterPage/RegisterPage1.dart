@@ -8,6 +8,7 @@ import 'package:spark/constants/ConstantColors.dart';
 import 'package:spark/screens/LandingPage/landingHelpers.dart';
 import 'package:spark/screens/LandingPage/landingPage.dart';
 import 'package:spark/screens/RegisterPage/RegisterPage2.dart';
+import 'package:spark/widgets/CustomDialogBox.dart';
 
 class RegisterPage1 extends StatefulWidget {
   @override
@@ -142,7 +143,12 @@ class _RegisterPage1State extends State<RegisterPage1> {
                       height: 5.0,
                     ),
                     IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          showCustomDialogBox(context,
+                              title: "Full Name",
+                              description:
+                                  "Type in the full name provided for the university");
+                        },
                         icon: Icon(
                           FontAwesomeIcons.circleInfo,
                           color: constantColors.primaryColor,

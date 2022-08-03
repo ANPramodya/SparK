@@ -8,6 +8,7 @@ import 'package:spark/constants/ConstantColors.dart';
 import 'package:spark/screens/login/loginPage.dart';
 import 'package:spark/services/Authentication.dart';
 import 'package:spark/services/FirebaseOperations.dart';
+import 'package:spark/widgets/CustomWarning.dart';
 
 import 'RegisterPage2.dart';
 
@@ -268,19 +269,31 @@ class _RegisterPage3State extends State<RegisterPage3> {
                           final String confirmPassword =
                               confirmPasswordController.text.trim();
                           if (name.isEmpty) {
-                            print("Empty Name");
+                            showCustomWarningBox(context,
+                                title: "Empty Field",
+                                description: "Please Enter a profile name!");
                           } else {
                             if (username.isEmpty) {
-                              print("Empty Username");
+                              showCustomWarningBox(context,
+                                  title: "Empty Field",
+                                  description: "Please Enter a username!");
                             } else {
                               if (password.isEmpty) {
-                                print("Empty password");
+                                showCustomWarningBox(context,
+                                    title: "Empty Field",
+                                    description: "Please Enter a password!");
                               } else {
                                 if (confirmPassword.isEmpty) {
-                                  print("Empty Confirm Password");
+                                  showCustomWarningBox(context,
+                                      title: "Empty Field",
+                                      description:
+                                          "Please Re-type the password");
                                 } else {
                                   if (password != confirmPassword) {
-                                    print("Passwords do not Match");
+                                    showCustomWarningBox(context,
+                                        title: "Empty Field",
+                                        description:
+                                            "Entered passwords are not matching!\n Re-enter Password");
                                   } else {
                                     Provider.of<Authentication>(context,
                                             listen: false)
