@@ -6,6 +6,7 @@ import 'package:page_transition/page_transition.dart';
 import 'package:spark/constants/ConstantColors.dart';
 import 'package:spark/screens/SettingsPage/Settings.dart';
 import 'package:spark/widgets/DrawerNavBar.dart';
+import 'package:spark/widgets/LogOutDialog.dart';
 import 'package:spark/widgets/MenuWidget.dart';
 
 class Profile extends StatelessWidget {
@@ -29,7 +30,18 @@ class Profile extends StatelessWidget {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        child: Container(),
+        child: GestureDetector(
+          onTap: () {
+            logOutDialog(context);
+          },
+          child: Container(
+            child: Text(
+              'Logout',
+              style:
+                  TextStyle(fontSize: 30.0, color: constantColors.whiteColor),
+            ),
+          ),
+        ),
       ),
     );
   }

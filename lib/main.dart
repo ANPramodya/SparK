@@ -5,10 +5,12 @@ import 'package:spark/constants/ConstantColors.dart';
 import 'package:spark/screens/Feed/FeedHelpers.dart';
 import 'package:spark/screens/HomePage/HomePageHelpers.dart';
 import 'package:spark/screens/LandingPage/landingHelpers.dart';
+import 'package:spark/screens/LandingPage/landingUtils.dart';
 import 'package:spark/screens/SplashScreen/SplashScreen.dart';
 import 'package:spark/screens/login/loginHelpers.dart';
 import 'package:spark/services/Authentication.dart';
 import 'package:spark/services/FirebaseOperations.dart';
+import 'package:spark/utils/UploadPost.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,6 +32,8 @@ class MyApp extends StatelessWidget {
             canvasColor: constantcolors.transparent),
       ),
       providers: [
+        ChangeNotifierProvider(create: (_) => landingUtils()),
+        ChangeNotifierProvider(create: (_) => UploadPost()),
         ChangeNotifierProvider(create: (_) => FirebaseOperations()),
         ChangeNotifierProvider(create: (_) => Authentication()),
         ChangeNotifierProvider(create: (_) => FeedHelpers()),

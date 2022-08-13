@@ -262,6 +262,8 @@ class _RegisterPage3State extends State<RegisterPage3> {
                       child: FloatingActionButton(
                         onPressed: () {
                           final String name = nameController.text.trim();
+                          final NetworkImage defaultUserImage = NetworkImage(
+                              'https://drive.google.com/uc?export=view&id=1r8k_ojrHjSu9i5U-So99V0XZomPU4z_D');
                           final String username =
                               usernameController.text.trim();
                           final String password =
@@ -312,6 +314,11 @@ class _RegisterPage3State extends State<RegisterPage3> {
                                         'useremail':
                                             getEmailController.text.trim(),
                                         'username': username,
+                                        // 'userimage':
+                                        //     Provider.of<FirebaseOperations>(
+                                        //             context,
+                                        //             listen: false)
+                                        //         .uploadUserAvatar(context),
                                         'name': name,
                                         'password': password
                                       });

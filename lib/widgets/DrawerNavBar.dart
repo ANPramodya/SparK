@@ -1,10 +1,13 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
+import 'package:spark/constants/ConstantColors.dart';
+import 'package:spark/widgets/LogOutDialog.dart';
 import 'package:spark/widgets/RegisterTextField.dart';
 
 class DrawerNavBar extends StatelessWidget {
-  const DrawerNavBar({Key? key}) : super(key: key);
+  ConstantColors constantColors = ConstantColors();
 
   @override
   Widget build(BuildContext context) {
@@ -127,7 +130,9 @@ class DrawerNavBar extends StatelessWidget {
               style:
                   TextStyle(color: constantColors.whiteColor, fontSize: 16.0),
             ),
-            onTap: () {},
+            onTap: () {
+              logOutDialog(context);
+            },
           )
         ],
       ),

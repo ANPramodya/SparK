@@ -30,9 +30,10 @@ class HomePageHelpers with ChangeNotifier {
         CustomNavigationBarItem(icon: Icon(EvaIcons.home)),
         CustomNavigationBarItem(
             icon: CircleAvatar(
+          backgroundImage: NetworkImage(
+              'https://drive.google.com/uc?export=view&id=1r8k_ojrHjSu9i5U-So99V0XZomPU4z_D'),
           radius: 35.0,
-          backgroundColor: constantColors.yellowColor,
-          //backgroundImage: ,
+          backgroundColor: constantColors.transparent,
         )),
       ],
     );
@@ -65,6 +66,8 @@ class HomePageHelpers with ChangeNotifier {
             child: CircleAvatar(
               radius: 15.0,
               backgroundColor: constantColors.blueColor,
+              backgroundImage: NetworkImage(
+                  'https://drive.google.com/uc?export=view&id=1r8k_ojrHjSu9i5U-So99V0XZomPU4z_D'),
             ),
           )
         ],

@@ -7,8 +7,11 @@ import 'package:spark/widgets/MenuWidget.dart';
 import 'package:spark/widgets/RegisterTextField.dart';
 
 import '../../widgets/CustomWarning.dart';
+import '../HomePage/HomePageHelpers.dart';
 
 class ChatRoom extends StatelessWidget {
+  // final PageController homePageController = PageController();
+  // int pageIndex = 0;
   ConstantColors constantColors = ConstantColors();
   //const ChatRoom({Key? key}) : super(key: key);
 
@@ -29,28 +32,11 @@ class ChatRoom extends StatelessWidget {
       body: Stack(
         children: [
           Container(
-            height: MediaQuery.of(context).size.height * 0.5,
-            width: MediaQuery.of(context).size.width * 0.4,
             decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: constantColors.primaryColor,
-              border:
-                  Border.all(color: constantColors.primaryColor, width: 2.0),
-            ),
-          ),
-          Positioned(
-            top: 200.0,
-            left: 200.0,
-            child: Container(
-              height: MediaQuery.of(context).size.height * 0.5,
-              width: MediaQuery.of(context).size.width * 0.4,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: constantColors.primaryColor,
-                border:
-                    Border.all(color: constantColors.primaryColor, width: 2.0),
-              ),
-            ),
+                image: DecorationImage(
+                    fit: BoxFit.fitHeight,
+                    image: NetworkImage(
+                        'https://drive.google.com/uc?export=view&id=1Ooh2Qvw26Lecn2zKt-i0a5eYNO92R3ep'))),
           ),
           Center(
             child: GestureDetector(
@@ -68,6 +54,8 @@ class ChatRoom extends StatelessWidget {
           ),
         ],
       ),
+      // bottomNavigationBar: Provider.of<HomePageHelpers>(context, listen: false)
+      //     .animatedBottomNavBar(context, pageIndex, homePageController),
     );
   }
 }

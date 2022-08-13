@@ -6,6 +6,8 @@ import 'package:spark/screens/Feed/Feed.dart';
 import 'package:spark/screens/HomePage/HomePageHelpers.dart';
 import 'package:spark/screens/Profile/Profile.dart';
 
+import '../../services/FirebaseOperations.dart';
+
 class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() => _HomePageState();
@@ -16,13 +18,13 @@ class _HomePageState extends State<HomePage> {
   final PageController homePageController = PageController();
   int pageIndex = 0;
 
-  /**@override
+  @override
   void initState() {
     super.initState();
-    Provider.of<firebaseOperations>(context, listen: false)
+    Provider.of<FirebaseOperations>(context, listen: false)
         .initUserData(context);
     super.initState();
-  }**/
+  }
 
   @override
   Widget build(BuildContext context) {

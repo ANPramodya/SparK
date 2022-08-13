@@ -5,6 +5,7 @@ import 'package:spark/constants/ConstantColors.dart';
 import 'package:spark/screens/ChatRoom/ChatRoom.dart';
 import 'package:spark/screens/Drawer/MenuItem.dart';
 import 'package:spark/screens/Drawer/MenuPage.dart';
+import 'package:spark/screens/Feed/Feed.dart';
 import 'package:spark/screens/Feedback/Feedback.dart';
 import 'package:spark/screens/HomePage/HomePage.dart';
 import 'package:spark/screens/Policies/Policies.dart';
@@ -12,6 +13,7 @@ import 'package:spark/screens/Requests/Requests.dart';
 import 'package:spark/screens/SettingsPage/Settings.dart';
 import 'package:spark/screens/Statistics/Statistics.dart';
 
+import '../../widgets/LogOutDialog.dart';
 import '../LandingPage/landingPage.dart';
 
 class HomePagePrev extends StatefulWidget {
@@ -60,6 +62,8 @@ class _HomePagePrevState extends State<HomePagePrev> {
         return FeedbackScreen();
       case MenuItems.settings:
         return Settings();
+      case MenuItems.logout:
+        return Feed();
 
       default:
         return HomePage();
